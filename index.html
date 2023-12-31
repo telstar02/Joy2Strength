@@ -26,7 +26,7 @@
             </div>
             <div class="music-player-wrapper">
                 <div class="music-player">
-                    <audio src="./asset/music/music.mp3" id="audio"></audio>
+                    <audio id="audio"></audio>
                     <div class="playback-setting">
                         <span class="iconfont icon-bofang"></span>
                         <span class="iconfont icon-zanting1"></span>
@@ -196,6 +196,10 @@
         }
         // 播放音乐
         function playMusic() {
+             // 只在第一次播放时设置音频文件源
+             if (!audio.src) {
+                audio.src = './asset/music/music.mp3';
+             }
             audio.play()
             playBtn.style.display = 'none'
             zanTingBtn.style.display = 'block'
